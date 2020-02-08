@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet"> 
+    <title>Daily Clock</title>
+</head>
+
+<body>
+
+    <div id="daysOfWeek" class="week">
+        <ul>
+            <li> <span class="weekday" id="sunday">Sunday</span></li>
+            <li> <span class="weekday" id="monday">Monday</span></li>
+            <li> <span class="weekday" id="tuesday">Tuesday</span></li>
+            <li> <span class="weekday" id="wednesday">Wednesday</span></li>
+            <li> <span class="weekday" id="thursday">Thursday</span></li>
+            <li> <span class="weekday" id="friday">Friday</span></li>
+            <li> <span class="weekday" id="saturday">Saturday</span></li>
+        </ul>
+    </div>
+
+    <div id="myClockDisplay" class="clock" onload="showTime">
+    </div>
+
+
+    <script>
+        function showTime() {
+            var date = new Date();
+            var h = date.getHours(); // 0 - 23
+            var m = date.getMinutes(); // 0 - 59
+            var s = date.getSeconds(); // 0 - 59
+            var session = "AM";
+
+            if (h == 0) {
+                h = 12;
+            }
+
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("myClockDisplay").innerText = time;
+            document.getElementById("myClockDisplay").textContent = time;
+
+            setTimeout(showTime, 1000);
+        }
+
+
+        showTime();
+
+    </script>
+</body>
+
+</html>
