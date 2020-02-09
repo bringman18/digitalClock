@@ -4,18 +4,6 @@ body {
     background: #191919;
 }
 
-
-.clock {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    color: #00FF97;
-    font-size: 300px;
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 10px;
-}
-
 .week  {
     position: absolute;
     top: 25%;
@@ -30,8 +18,57 @@ body {
 
 .week  ul li  {
     display: inline-block;
-    padding: 19px;
+    margin: 20px;
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 50px;
     transform: scaleY(1.25);
+}
+
+.highlight  {
+    color: #00FF97;
+}
+
+.clock {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #00FF97;
+    font-size: 170px;
+    letter-spacing: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.toggle  {
+    font-family: 'Barlow Condensed', sans-serif;
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-25%);
+
+}
+
+.toggle ul  {
+    list-style: none;
+}
+
+.toggle ul li   {
+    display: inline-block;
+    font-size: 50px;
+    
+}
+
+.toggle ul li a  {
+    text-decoration: none;
+    padding: 75px;
+    color: #4B4B4B;
+    transition: color .75s ease;
+}
+
+.toggle ul li a:hover  {
+    color: whitesmoke;
+}
+
+.toggle .current  {
+    color: #00FF97;
 }
