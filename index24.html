@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet"> 
+    <title>24 Hour Clock</title>
+</head>
+
+<body>
+    <div id="highlightCurrentWeekday" class="week" onload="highlightCurrentDay">
+        <ul>
+            <li> <span class="weekday" id="sunday">Sunday</span></li>
+            <li> <span class="weekday" id="monday">Monday</span></li>
+            <li> <span class="weekday" id="tuesday">Tuesday</span></li>
+            <li> <span class="weekday" id="wednesday">Wednesday</span></li>
+            <li> <span class="weekday" id="thursday">Thursday</span></li>
+            <li> <span class="weekday" id="friday">Friday</span></li>
+            <li> <span class="weekday" id="saturday">Saturday</span></li>
+        </ul>
+    </div>
+
+    <div id="myClockDisplay" class="clock" onload="showTime24">
+    </div>
+
+    <div id="toggleClock" class="toggle">
+        <ul>
+            <li><a href="index.html" id="twelve">12 hour</a></li>
+            <li><a class="current" href="index24.html" id="military">Military</a></li>
+        </ul>
+    </div>
+
+
+    <script>
+        function currentTime() {
+            var date = new Date(); /* creating object of Date class */
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            hour = updateTime(hour);
+            min = updateTime(min);
+            sec = updateTime(sec);
+            document.getElementById("myClockDisplay").innerText = hour + " : " + min + " : " +
+            sec; /* adding time to the div */
+            var t = setTimeout(function () {
+                currentTime()
+            }, 1000); /* setting timer */
+        }
+
+        function updateTime(k) {
+            if (k < 10) {
+                return "0" + k;
+            } else {
+                return k;
+            }
+        }
+
+        currentTime(); /* calling currentTime() function to initiate the process */
+
+
+
+        var now = new Date();
+        var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+        var today = days[now.getDay()];
+        document.getElementById(today).style.color = '#00FF97';
+    </script>
+</body>
+
+</html>
