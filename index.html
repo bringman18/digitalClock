@@ -4,13 +4,14 @@
 <head>
     
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet"> 
-    <title>Daily Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet"> 
+    <title>12 Hour Clock</title>
 </head>
 
 <body>
 
-    <div id="daysOfWeek" class="week">
+    <div id="highlightCurrentWeekday" class="week" onload="highlightCurrentDay">
         <ul>
             <li> <span class="weekday" id="sunday">Sunday</span></li>
             <li> <span class="weekday" id="monday">Monday</span></li>
@@ -25,8 +26,17 @@
     <div id="myClockDisplay" class="clock" onload="showTime">
     </div>
 
+    <div id="toggleClock" class="toggle">
+        <ul>
+            <li><a class="current" href="index.html" id="twelve">12 hour</a></li>
+            <li><a href="index24.html" id="military">Military</a></li>
+        </ul>
+    </div>
+
+
 
     <script>
+        
         function showTime() {
             var date = new Date();
             var h = date.getHours(); // 0 - 23
@@ -54,9 +64,13 @@
             setTimeout(showTime, 1000);
         }
 
-
         showTime();
 
+    var now = new Date();
+    var days =  ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+
+    var today = days[ now.getDay() ];
+    document.getElementById(today).style.color = '#00FF97';
     </script>
 </body>
 
